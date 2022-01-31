@@ -6,6 +6,7 @@ const client_id = "32171b27f62748dbba5232d328419944";
 const scopes = [
     "user-top-read",
     "user-read-recently-played",
+    "user-follow-read",
 ];
 
 export const loginURL = `${authEndpoint}?client_id=${client_id}&redirect_uri=${redirectURI}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
