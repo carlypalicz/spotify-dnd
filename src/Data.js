@@ -9,21 +9,19 @@ function Data({ spotify }) {
 
     useEffect(() => {
         spotify.getMe()
-            .then((user) => {
-                setUser(user);
+            .then((u) => {
+                setUser(u);
         });
         spotify.getMyTopArtists({limit: 50, time_range: "long_term"})
-            .then((top_artists) => {
-                setTopArtists(top_artists);
+            .then((ta) => {
+                setTopArtists(ta);
         });
         spotify.getMyTopTracks({limit: 50, time_range: "long_term"})
-        .then((top_tracks) => {
-            setTopTracks(top_tracks);
+        .then((tt) => {
+            setTopTracks(tt);
         });
     }, [spotify]);
 
-
-    //testing stuff out
     let tt_ids = [];
     for (let i = 0; i < top_tracks?.items?.length; i++){
         tt_ids.push(top_tracks?.items[i].id);
@@ -33,7 +31,6 @@ function Data({ spotify }) {
     for (let i = 0; i < top_artists?.items?.length; i++){
         ta_ids.push(top_artists?.items[i].id);
     }
-    //end test section
 
 
     return (
